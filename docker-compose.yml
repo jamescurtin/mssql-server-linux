@@ -2,10 +2,7 @@
 version: '3'
 services:
 
-
   mssql:
-    networks:
-      - waybot_network
     build:
       dockerfile: Dockerfile
       context: .
@@ -13,13 +10,9 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Strong(!)Password
     volumes:
-      - mssqlfixtures:/docker-entrypoint-initdb.d
+      - fixtures:/fixtures
     ports:
       - "1433:1433"
 
-networks:
-   waybot_network:
-
 volumes:
-  mssqlfixtures:
-
+  fixtures:
