@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 
 from sqlalchemy import create_engine
@@ -29,7 +29,7 @@ def main():
                 engine.execute(query)
                 counter += n
                 if counter % (n * 10) == 0:
-                    print('Inserted {} of {} records'.(counter, record_count))
+                    print('Inserted {} of {} records'.format(counter, record_count))
                 del rows[0:n]
 
 main()
